@@ -3,6 +3,8 @@
 **Simple Flask app** that scores a spoken transcript (or pasted text) against a rubric (Excel workbook).  
 It provides a web UI, a JSON scoring endpoint, and an Excel report download.
 
+Deployed Application link: https://ai-speech-evaluator.onrender.com/
+
 **Rubric file used by default:**  
 `/mnt/data/Case study for interns.xlsx` (place your workbook in the repository root or point `RUBRIC_PATH` env var to it).
 
