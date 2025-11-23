@@ -1,0 +1,74 @@
+/* Reset-ish */
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:#0f6b7a linear-gradient(180deg,#0f6b7a 0%, #eaf5f6 55%); color:#0b1220}
+.frame{max-width:1100px;margin:26px auto;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 18px 40px rgba(2,8,23,0.2)}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:28px 36px;background:linear-gradient(180deg,#fff,#f6fbfb)}
+.title-left h1{margin:0;font-size:26px;color:#0b2b33}
+.title-right{display:flex;align-items:center;gap:14px}
+.user{font-weight:600;color:#0b1220}
+.avatar img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 6px 18px rgba(7,13,20,0.12)}
+
+.dashboard{display:grid;grid-template-columns:380px 1fr;gap:20px;padding:20px 28px}
+.controls-panel{ /* left controlled by grid */ }
+.results-panel{ /* right flexible */ }
+
+.input-card{background:transparent;padding:12px}
+.input-card label{display:block;font-size:13px;color:#3b5560;margin-bottom:8px}
+textarea{width:100%;min-height:200px;border-radius:10px;border:1px solid #e6eef6;padding:12px;font-size:14px;resize:vertical}
+.form-row{display:flex;gap:12px;align-items:center;margin-top:12px}
+.file-wrap input{display:block}
+.dur-wrap input{width:120px;padding:8px;border-radius:8px;border:1px solid #e6eef6}
+.actions{margin-left:auto;display:flex;gap:8px}
+.btn{padding:10px 14px;border-radius:10px;border:none;cursor:pointer;font-weight:700}
+.btn.primary{background:#1f9db0;color:#fff;box-shadow:0 10px 24px rgba(31,157,176,0.18)}
+.btn.outline{background:#fff;border:1px solid rgba(31,157,176,0.12);color:#1f9db0}
+
+.hint{font-size:13px;color:#607d86;margin-top:10px}
+
+/* result cards */
+.top-grid{display:grid;grid-template-columns:260px 1fr;gap:14px;margin-bottom:14px;align-items:stretch}
+.card{background:#fff;padding:16px;border-radius:10px;box-shadow:0 8px 20px rgba(7,12,20,0.04);display:flex;flex-direction:column}
+.donut-card{display:flex;align-items:center;justify-content:center;flex-direction:column}
+.metric-card{display:flex;flex-direction:column;gap:12px;padding:18px}
+
+/* donut */
+.donut-wrap{display:flex;flex-direction:column;align-items:center;gap:8px}
+.donut-label{font-weight:700;color:#0b1220;font-size:15px}
+#donut-text{font-family:Inter, Arial, sans-serif;font-weight:800}
+
+/* metric card layout */
+.metric{display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:8px;background:#fbffff;margin-bottom:10px}
+.metric-title{color:#6b7e86;font-size:13px}
+.metric-value{font-size:20px;font-weight:800}
+
+/* progress bars kept in CSS but not used */
+.bar{height:12px;background:#eef6f8;border-radius:8px;overflow:hidden;margin-bottom:8px}
+.bar.small{height:8px}
+.bar-fill{height:100%;background:linear-gradient(90deg,#66d3c9,#2b97c9);width:0%}
+.bar-fill.max{background:linear-gradient(90deg,#2b97c9,#66d3c9)}
+
+/* middle grid */
+.middle-grid{display:block;gap:14px;margin-bottom:14px}
+.breakdown-card{width:100%;padding:18px}
+.break-header{display:flex;justify-content:space-between;align-items:center}
+.legend-card{display:none}
+
+/* chart canvas responsive sizing */
+.breakdown-card canvas{width:100% !important;height:200px !important;display:block}
+
+/* table */
+.table-card, .table-card *{box-sizing:border-box}
+.table-card{padding:0}
+.result-table{width:100%;border-collapse:collapse}
+.result-table thead tr{background:#f7fbfb}
+.result-table th, .result-table td{padding:14px;border-bottom:1px solid #eef4f6;text-align:left;font-size:14px}
+.result-table th{color:#0b1220}
+.result-table td.feedback{color:#55676f;max-width:520px}
+
+/* responsive */
+@media (max-width:1000px){
+  .dashboard{display:block;padding:14px}
+  .controls-panel, .results-panel{width:100%}
+  .top-grid{display:block}
+  .middle-grid{display:block}
+}

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Introduction Speech Evaluation</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="frame">
+    <header class="topbar">
+      <div class="title-left">
+        <h1>Introduction Speech Evaluation</h1>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <section class="controls-panel">
+        <div class="input-card">
+          <label>Transcript (paste or upload .txt)</label>
+          <textarea id="transcript" placeholder="Paste transcript here or upload a .txt file..."></textarea>
+          <div class="form-row">
+            <div class="file-wrap">
+              <label class="small">Upload .txt</label>
+              <input id="file" type="file" accept=".txt" />
+            </div>
+            <div class="dur-wrap">
+              <label class="small">Duration (sec)</label>
+              <input id="duration_seconds" type="number" min="0" placeholder="e.g. 52" />
+            </div>
+          </div>
+
+          <div class="hint">Tip: enter duration for accurate WPM. Results and downloadable report will include sentence count & duration.</div>
+
+          <div class="actions" style="margin-top:12px;">
+            <button id="scoreBtn" class="btn primary">Score</button>
+            <button id="scoreExcelBtn" class="btn outline">Download Report</button>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="results-panel">
+        <div class="top-grid">
+          <div class="card donut-card">
+            <div class="donut-wrap">
+              <svg id="donut" viewBox="0 0 120 120" width="140" height="140" aria-hidden="true">
+                <defs>
+                  <linearGradient id="g1" x1="0%" x2="100%">
+                    <stop offset="0%" stop-color="#66d3c9"/>
+                    <stop offset="100%" stop-color="#2b97c9"/>
+                  </linearGradient>
+                </defs>
+                <circle cx="60" cy="60" r="48" fill="#f3fbfb" />
+                <circle id="donut-bg" cx="60" cy="60" r="40" fill="none" stroke="#e6f2f6" stroke-width="18"/>
+                <circle id="donut-arc" cx="60" cy="60" r="40" fill="none" stroke="url(#g1)" stroke-width="18" stroke-linecap="round"
+                        stroke-dasharray="0 251.2" transform="rotate(-90 60 60)"/>
+                <text id="donut-text" x="60" y="68" text-anchor="middle" font-size="28" font-weight="700" fill="#0b1220">--</text>
+              </svg>
+              <div class="donut-label">Overall Score</div>
+            </div>
+          </div>
+
+          <div class="card metric-card">
+            <div class="metric">
+              <div class="metric-title">Word Count</div>
+              <div id="metric_words" class="metric-value">0</div>
+            </div>
+            <div class="metric">
+              <div class="metric-title">Sentence Count</div>
+              <div id="metric_sentences" class="metric-value">0</div>
+            </div>
+            <div class="metric">
+              <div class="metric-title">Duration (s)</div>
+              <div id="metric_duration" class="metric-value">—</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="middle-grid">
+          <div class="card breakdown-card">
+            <div class="break-header">
+              <h3>Scores Breakdown</h3>
+              <button id="downloadReport" class="btn outline small">Download Report</button>
+            </div>
+            <canvas id="breakdownChart"></canvas>
+          </div>
+        </div>
+
+        <div class="card table-card">
+          <table class="result-table">
+            <thead>
+              <tr><th>Criterion</th><th>Score Attained</th><th>Max Score</th><th>Feedback</th></tr>
+            </thead>
+            <tbody id="results_body">
+              <!-- filled by JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/static/dashboard.js"></script>
+</body>
+</html>
